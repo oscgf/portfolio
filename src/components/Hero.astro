@@ -1,0 +1,59 @@
+---
+import Badge from './Badge.astro'
+import LinkedIn from './icons/LinkedIn.astro'
+import SocialPill from './SocialPill.astro'
+import GitHub from './icons/GitHub.astro'
+import Mail from './icons/Mail.astro'
+
+const is_available = false;
+---
+
+<section id="Hero" class="w-full mx-auto lg:w-[740px] py-44 pb-30 px-4">
+    <!-- Image -->
+    <img
+        src="/portfolio/images/avatar.jpg"
+        alt="oscar gonalez fresno"
+        class="rounded-full size-12 my-4"
+    />
+
+    <!-- Title -->
+    <h1 class="text-black text-5xl font-bold flex flex-row gap-x-4 pb-4">
+        Hey, I'm
+        <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">Óscar</span>
+        
+        {is_available &&
+        <a
+            href="https://www.linkedin.com/in/oscarglezfresno/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex justify-center items-center"
+        >
+            <Badge>Available</Badge>
+        </a>}
+
+    </h1>
+
+    <!-- Text -->
+    <h2 class="text-black text-xl opacity-75 text-wrap">
+        Telecommunications Engineer passionate about tackling complex challenges and driving innovation.
+        <span class="italic">Let's create the future together.</span>
+    </h2>
+
+    <!-- Social -->
+    <nav class="flex gap-x-2 mt-4">
+        <SocialPill href="https://www.linkedin.com/in/oscarglezfresno/">
+            <LinkedIn class="size-3"/>
+            LinkedIn
+        </SocialPill>
+
+        <SocialPill href="https://www.github.com/oscgf">
+            <GitHub class="size-3"/>
+            GitHub
+        </SocialPill>
+
+        <SocialPill href="mailto:oscargonzalezfresno@gmail.com">
+            <Mail class="size-4"/>
+            oscargonzalezfresno@gmail.com
+        </SocialPill>
+    </nav>
+</section>
