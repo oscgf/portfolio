@@ -1,0 +1,25 @@
+---
+import LanguageItem from "./LanguageItem.astro"
+
+const languages = [
+  {
+    name: "Spanish",
+    level: "Native"
+  },
+  {
+    name: "English",
+    level: "Professional"
+  },
+  {
+    name: "Italian",
+    level: "Intermidiate"
+  }
+]
+---
+<ul>
+    {languages.map((language) => (
+        <li>
+            <LanguageItem {...language} />
+        </li>
+    ))}
+</ul>

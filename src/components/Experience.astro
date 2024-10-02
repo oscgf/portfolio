@@ -1,0 +1,30 @@
+---
+import ExperienceItem from './ExperienceItem.astro'
+
+const EXPERIENCE = [
+    {
+        date: 'April 2022 - July 2023',
+        title: 'Martech Engineering - Merkle (Gijón)',
+        description: [
+            "Data collection from multiple client assets to perform detailed analyses that enhance strategic decision-making and personalize customer experiences",
+            "Implementation of mechanisms to manage user privacy and consent on web pages, ensuring compliance with data protection regulations"
+            ],
+    },
+    {
+        date: 'March 2021 - June 2021',
+        title: 'Internship - University of Oviedo (Gijón)',
+        description:     [
+            "Participation in internships within the Signal Theory and Communications Group and the Thin5G Chair, collaborating on research and development projects in the telecommunications field.",
+            "Application of Machine Learning techniques on a digital communications simulation for MIMO channels, creating a neural network for signal detection and recovery."
+            ],
+    },
+]
+---
+<ol class="relative border-s border-blue-300 mx-5 my-5">
+    {EXPERIENCE.map((item) => (
+        <li class="mb-10 ms-4">
+            <ExperienceItem {...item} />
+        </li>
+    ))}    
+</ol>
+
