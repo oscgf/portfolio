@@ -5,10 +5,11 @@ import SocialPill from './SocialPill.astro'
 import GitHub from './icons/GitHub.astro'
 import Mail from './icons/Mail.astro'
 
-const is_available = false;
+const is_available = true;
+const mail = "oscargonzalezfresno@gmail.com";
 ---
 
-<section id="Hero" class="w-full mx-auto lg:w-[740px] py-44 pb-30 px-4">
+<section id="Hero" class="w-full mx-auto lg:w-[740px] py-22 sm:py-44 pb-30 px-4">
     <!-- Image -->
     <img
         src="/portfolio/images/avatar.jpg"
@@ -17,30 +18,33 @@ const is_available = false;
     />
 
     <!-- Title -->
-    <h1 class="text-black text-5xl font-bold flex flex-row gap-x-4 pb-4">
+    <h1 class="text-black text-4xl sm:text-5xl font-bold flex flex-col md:flex-row gap-2 md:gap-4 pb-4 items-start">
         Hey, I'm
-        <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">Óscar</span>
-        
-        {is_available &&
+        <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+            Óscar
+        </span>
+    
+        {is_available && (
         <a
             href="https://www.linkedin.com/in/oscarglezfresno/"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex justify-center items-center"
+            class="flex justify-center items-center mt-2 md:mt-0"
         >
             <Badge>Available</Badge>
-        </a>}
-
+        </a>
+        )}
     </h1>
+    
 
     <!-- Text -->
-    <h2 class="text-black text-xl opacity-75 text-wrap">
+    <h2 class="text-black sm:text-xl opacity-75 text-wrap">
         Telecommunications Engineer passionate about tackling complex challenges and driving innovation.
         <span class="italic">Let's create the future together.</span>
     </h2>
 
     <!-- Social -->
-    <nav class="flex gap-x-2 mt-4">
+    <nav class="flex flex-col gap-2 mt-4 sm:flex-row sm:gap-x-4">
         <SocialPill href="https://www.linkedin.com/in/oscarglezfresno/">
             <LinkedIn class="size-3"/>
             LinkedIn
@@ -53,7 +57,7 @@ const is_available = false;
 
         <SocialPill href="mailto:oscargonzalezfresno@gmail.com">
             <Mail class="size-4"/>
-            oscargonzalezfresno@gmail.com
+            {mail}
         </SocialPill>
     </nav>
 </section>
