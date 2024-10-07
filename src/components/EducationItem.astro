@@ -13,6 +13,6 @@ const { title, description, date } = Astro.props;
 <h3 class="sm:text-lg font-semibold text-gray-800 py-1">{title}</h3>
     {description.map(text => (
         <p class="py-1 text-sm sm:text-base font-normal text-gray-500">
-            · {text}
+            {text}
         </p>
     ))}

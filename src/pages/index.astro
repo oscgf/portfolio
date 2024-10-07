@@ -4,10 +4,7 @@ import Experience from '../components/Experience.astro';
 import Hero from '../components/Hero.astro';
 import Projects from '../components/Projects.astro';
 import SectionContainer from '../components/SectionContainer.astro';
-import About from '../components/About.astro';
-import Skills from '../components/Skills.astro';
-
-const hamburger = false;
+import About from '../components/AboutMe.astro';
 ---
 
 
@@ -15,11 +12,6 @@ const hamburger = false;
 	<main class="w-full p-4 md:p-6 lg:p-8">
 		<!-- Hero Section -->
 		<Hero />
-
-		<!-- About Section -->
-		<SectionContainer id="about" title="About me">
-			<About />
-		</SectionContainer>
 
 		<!-- Experience Section -->
 		<SectionContainer id="experience" title="Experience">
@@ -30,18 +22,5 @@ const hamburger = false;
 		<SectionContainer id="projects" title="Projects">
 			<Projects />
 		</SectionContainer>
-
-		<!-- Skills Section -->
-		<SectionContainer id="skills" title="Skills">
-			<Skills />
-		</SectionContainer>
-		
-
-		<!-- Languages Section -->
-		<!--
-		<SectionContainer title="Languages">
-			<Languages />
-		</SectionContainer>
-		-->
 	</main>
 </Layout>

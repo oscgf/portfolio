@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import AboutMe from '../components/AboutMe.astro';
+import Skills from '../components/Skills.astro';
+import Education from '../components/Education.astro';
+---
+
+
+<Layout title="Portfolio - Óscar González Fresno">
+	<main class="w-full p-4 md:p-6 lg:p-8">
+		<!-- About Section -->
+		<SectionContainer id="about" title="About me">
+			<AboutMe />
+		</SectionContainer>
+
+		<!-- Educaion Section -->
+		<SectionContainer id="education" title="Education">
+			<Education />
+		</SectionContainer>
+
+		<!-- Skills Section -->
+		<SectionContainer id="skills" title="Skills">
+			<Skills />
+		</SectionContainer>
+	</main>
+</Layout>

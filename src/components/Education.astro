@@ -1,0 +1,50 @@
+---
+import EducationItem from './EducationItem.astro'
+
+const EDUCATION = [
+    {
+        date: 'September 2023 - Present',
+        title: 'Universidad Carlos III de Madrid',
+        description: [
+            "Doble Master Degree in Telecommunications Engineering and Advanced Communications Technologies"
+        ],
+    },
+    {
+        date: 'September 2017 - March 2022',
+        title: 'Universidad de Oviedo',
+        description: [
+            "Bachelor´s Degree in Telecommunication Technologies and Services Engineering"
+        ],
+    },
+    {
+        date: 'September 2021 - March 2022',
+        title: 'Universidad de Sevilla',
+        description: [
+            "Bachelor´s Degree in Telecommunication Technologies and Services Engineering"
+        ],
+    },
+    {
+        date: 'September 2019 - July 2020',
+        title: 'Università degli Studi di Cagliari',
+        description: [
+            "Bachelor´s Degree in Telecommunication Technologies and Services Engineering"
+        ],
+    },
+    {
+        date: 'September 2018 - June 2023',
+        title: 'Conservatorio Profesional de Música y Danza de Gijón',
+        description: [
+            "Guitar Specialty"
+        ],
+    },
+]
+
+---
+<ol class="relative border-s border-blue-300 mx-5 my-5">
+    {EDUCATION.map((item) => (
+        <li class="mb-10 ms-4">
+            <EducationItem {...item} />
+        </li>
+    ))}    
+</ol>
+
