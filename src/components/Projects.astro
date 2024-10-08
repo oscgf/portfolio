@@ -1,34 +1,29 @@
 ---
 import ProjectItem from './ProjectItem.astro'
+import { getCollection } from 'astro:content';
+const allProjects = await getCollection('projects', ({ data }) => {
+  return data.featured;
+});
 
-const PROJECTS = [
-    {
-        title: 'MIMO Detection with Deep Learning',
-        body: 'Simulation of a communication system with multiple antennas using DL techniques',
-        href: 'https://biblus.us.es/bibing/proyectos/abreproy/93911/descargar_fichero/TFG-3911+GONZ%C3%81LEZ+FRESNO%2C+%C3%93SCAR.pdf',
-        src: '/portfolio/images/portada_tfg.jpg',
-    },
-    {
-        title: "Wordle Solver",
-        body: "A smart assistant designed to help you crack the word of the day in the popular Wordle game.",
-        src: "/portfolio/images/wordle.jpg",
-    },
-    {
-        title: 'Custom-Built Drone: From Components to Flight',
-        body: 'An entirely custom-made drone, crafted from the ground up by sourcing and assembling all the necessary components, including wiring, programming, and design.',
-        src: '/portfolio/images/drone.jpg',
-    },
-]
+console.log(allProjects);
+
+//href: 'https://biblus.us.es/bibing/proyectos/abreproy/93911/descargar_fichero/TFG-3911+GONZ%C3%81LEZ+FRESNO%2C+%C3%93SCAR.pdf',
 ---
 
 <ol class="grid grid-cols-1 gap-2 mx-5 my-5 ">
-    {PROJECTS.map((project) => (
+    {allProjects.map((project) => (
         <li class="mb-10 ms-4">
-            <ProjectItem {...project} />
+            <ProjectItem
+                title={project.data.title}
+                description={project.data.description}
+                slug={project.slug}
+                src={project.data.image.src}
+                alt={project.data.image.alt}
+            />
         </li>
     ))}
 
-    {PROJECTS.length > 3 &&
+    {allProjects.length > 3 &&
     <a href="portfolio/about" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center w-auto mx-auto">
     More projects
         <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -37,4 +32,3 @@ const PROJECTS = [
     </a>
     }
 </ol>
-

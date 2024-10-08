@@ -1,0 +1,76 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TOC from '../components/TOC.astro';
+import '@fontsource-variable/onest'; 
+//import type { MarkdownLayoutProps } from 'astro';
+/*
+type Props = MarkdownLayoutProps<{
+    title: string;
+    author: string;
+    date: string;
+    description?: string,
+}>;
+
+const { frontmatter } = Astro.props;
+*/
+
+const { title, description, headings } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Header />
+	
+		<article class="flex">
+			<main id="content" class="flex-1 p-6 prose prose-h1:text-blue-500 prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-p:text-base prose-a:text-blue-600 prose-a:underline hover:prose-a:text-blue-800 prose-blockquote:border-l-4 prose-blockquote:border-gray-400 prose-blockquote:pl-4 prose-blockquote:text-gray-600 w-full p-4 md:p-6 lg:p-8 text-pretty">
+				<slot />
+			</main>	
+			<TOC {headings} />
+		</article>
+		
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		color-scheme: light dark;
+	}
+	html {
+		font-family: "Onest Variable",system-ui, sans-serif;
+		scroll-behavior: smooth;
+		scroll-padding-top: 80px;
+ 	}
+	body {
+		background: #F3F4F6;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	main {
+		max-width: 800px; /* Adjust as needed */
+		margin: 0 auto; /* Centers horizontally */
+		padding: 2rem; /* Optional padding */
+	}
+	@media (prefers-reduces-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+
+	@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 100px; /* Example: Small screens (e.g., mobile devices) */
+    }
+}
+</style>
