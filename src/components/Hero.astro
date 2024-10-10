@@ -4,6 +4,7 @@ import LinkedIn from './icons/LinkedIn.astro'
 import SocialPill from './SocialPill.astro'
 import GitHub from './icons/GitHub.astro'
 import Mail from './icons/Mail.astro'
+import CV from './icons/CV.astro'
 
 const is_available = true;
 const mail = "oscargonzalezfresno@gmail.com";
@@ -59,5 +60,10 @@ const mail = "oscargonzalezfresno@gmail.com";
             <Mail class="size-4"/>
             {mail}
         </SocialPill>
+
+        <SocialPill href="/portfolio/pdf/CV_en.pdf" target="_blank">
+            <CV class="size-5"/>
+        </SocialPill>
+    </nav>
     </nav>
 </section>
