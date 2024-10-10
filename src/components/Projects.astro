@@ -2,12 +2,8 @@
 import ProjectItem from './ProjectItem.astro'
 import { getCollection } from 'astro:content';
 const allProjects = await getCollection('projects', ({ data }) => {
-  return data.featured;
+    return data.featured;
 });
-
-console.log(allProjects);
-
-//href: 'https://biblus.us.es/bibing/proyectos/abreproy/93911/descargar_fichero/TFG-3911+GONZ%C3%81LEZ+FRESNO%2C+%C3%93SCAR.pdf',
 ---
 
 <ol class="grid grid-cols-1 gap-2 mx-5 my-5 ">
@@ -19,6 +15,7 @@ console.log(allProjects);
                 slug={project.slug}
                 src={project.data.image.src}
                 alt={project.data.image.alt}
+                draft={project.data.draft}
             />
         </li>
     ))}

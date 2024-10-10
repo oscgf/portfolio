@@ -2,19 +2,14 @@
 title: MIMO Detection with Deep Learning
 author: "Óscar González Fresno"
 date: "07 Oct 2024"
-description: Project about MIMO Detection with Deep Learning
+description: This project applies Deep Learning to improve detection in MIMO communication systems, focusing on beating traditional detection methods.
 image: {
  src: "/portfolio/images/portada_tfg.jpg",
  alt: "tfg photo"
 }
+draft: false
 featured: true
 ---
-
-# MIMO Detection with Deep Learning
-
-<!--toc-->
-
-<img class="rounded-lg w-auto" src="/portfolio/images/portada_tfg.jpg" alt="">
 
 ## Summary
 
@@ -27,11 +22,6 @@ The project is divided into three parts:
 1. Simulation of the MIMO System in Python
 2. Simulation of the MIMO System in PyTorch
 3. Design and simulation of MIMO detection based on deep learning
-
-You can download and run the files in a Python environment like Anaconda, though it is recommended to execute the notebooks in Google Colab, taking advantage of hardware acceleration and loading the files _labcomgid.py_, _functions.py_, and _network.py_.
-
-An environment file is also included.
-
 
 ## Key Features
 
@@ -52,13 +42,6 @@ An environment file is also included.
 * **Investigation into the performance difference of the ML algorithm between NumPy and PyTorch.**
 * **Design of more complex neural networks to handle MIMO systems with a larger number of antennas and modulation points.**
 
-## How to Run the Code
-
-1. Clone the GitHub repository.
-2. Install the necessary dependencies.
-3. Run the `MIMO_numpy.py` file for the NumPy-based simulation.
-4. Run the `MIMO_pytorch.ipynb` or `mimo_pytorch.py` file for the PyTorch-based simulation.
-5. Run the `MIMO_pytorch.ipynb` or `mimo_nn.py` file for the neural network-based simulation.
 
 ## Acknowledgements
 
@@ -66,37 +49,6 @@ Thanks to the project supervisor, Juan José Murillo Fuentes, for his invaluable
 
 Recognition to the Department of Signal Theory and Communications of the University of Seville for providing the foundational material for this project.
 
-## References
-
-[1] F. J. Payán Somet, J. J. Murillo Fuentes, and J. C. Aradillas Jaramillo, "Manual de Laboratorio de Comunicaciones Digitales con Python," 2020 ed., Departamento de Teoría de la Señal y Comunicaciones. Escuela Técnica Superior de Ingeniería, Universidad de Sevilla.
-
-[2] "Anaconda," [Online]. Available: [https://www.anaconda.com/](https://www.anaconda.com/).
-
-[3] "Spyder IDE," [Online]. Available: [https://www.spyder-ide.org/](https://www.spyder-ide.org/).
-
-[4] "PyTorch," [Online]. Available: [https://pytorch.org/](https://pytorch.org/).
-
-[5] "NumPy," [Online]. Available: [https://numpy.org/](https://numpy.org/).
-
-[6] "Matplotlib," [Online]. Available: [https://matplotlib.org/](https://matplotlib.org/).
-
-[7] Ó. González Fresno, "Github," February 2022. [Online]. Available: [https://github.com/osgofre/MIMO-DL](https://github.com/osgofre/MIMO-DL).
-
-[8] "Additive White Gaussian Noise," Wikipedia, 25 October 2021. [Online]. Available: [https://en.wikipedia.org/wiki/Additive_white_Gaussian_noise](https://en.wikipedia.org/wiki/Additive_white_Gaussian_noise). [Last accessed: 11 January 2022].
-
-[9] A. Goldsmith, "MIMO detection algorithms," in *Wireless Communications*, Stanford University, 2017.
-
-[10] "Número de condición," Wikipedia, 12 January 2022. [Online]. Available: [https://es.wikipedia.org/wiki/N%C3%BAmero_de_condici%C3%B3n](https://es.wikipedia.org/wiki/N%C3%BAmero_de_condici%C3%B3n). [Last accessed: 12 January 2022].
-
-[11] J. J. M. Fuentes, "Unit 3: Notes on the LMMSE in MIMO," in *Procesado Digital para Sistemas de Comunicaciones y Audiovisuales*, Departamento de Teoría de la Señal y Comunicaciones. Escuela Técnica Superior de Ingeniería, Universidad de Sevilla, 2021.
-
-[12] "Google Colaboratory," Google, LLC, [Online]. Available: [https://colab.research.google.com/notebooks/welcome.ipynb?hl=es](https://colab.research.google.com/notebooks/welcome.ipynb?hl=es).
-
-[13] R. Raina, A. Madhavan, and A. Y. Ng, *Large-scale Deep Unsupervised Learning using Graphics Processors*, ACM Press the 26th Annual International Conference - Montreal, Quebec, Canada (2009.06.14-2009.06.18), Stanford, 2009.
-
-[14] Udacity, "Intro to Deep Learning with PyTorch," Facebook, 2021. [Online]. Available: [https://www.udacity.com/course/deep-learning-pytorch--ud188](https://www.udacity.com/course/deep-learning-pytorch--ud188).
-
-[15] Y. LeCun, C. Cortes, and C. J.C. Burges, "The MNIST Database," [Online]. Available: [http://yann.lecun.com/exdb/mnist/](http://yann.lecun.com/exdb/mnist/).
-
-[16] "Datasets & Dataloaders," PyTorch, [Online]. Available: [https://pytorch.org/tutorials/beginner/basics/data_tutorial.html](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html).
-
+## Links
+- [Project Repository](https://github.com/oscgf/mimo-detection-dl)
+- [Download Report](https://biblus.us.es/bibing/proyectos/abreproy/93911/descargar_fichero/TFG-3911+GONZ%C3%81LEZ+FRESNO%2C+%C3%93SCAR.pdf)
