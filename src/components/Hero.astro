@@ -45,24 +45,26 @@ const mail = "oscargonzalezfresno@gmail.com";
     </h2>
 
     <!-- Social -->
-    <nav class="flex flex-col gap-2 mt-4 sm:flex-row sm:gap-x-4">
+    <nav class="flex flex-row gap-2 mt-4">
         <SocialPill href="https://www.linkedin.com/in/oscarglezfresno/">
-            <LinkedIn class="size-3"/>
-            LinkedIn
+            <LinkedIn class="size-4 sm:size-3"/>
+            <span class="hidden sm:block">LinkedIn</span>
         </SocialPill>
 
         <SocialPill href="https://www.github.com/oscgf">
-            <GitHub class="size-3"/>
-            GitHub
+            <GitHub class="size-4 sm:size-3"/>
+            <span class="hidden sm:block">GitHub</span>
         </SocialPill>
 
         <SocialPill href="mailto:oscargonzalezfresno@gmail.com">
-            <Mail class="size-4"/>
-            {mail}
+            <Mail class="size-5 sm:size-4"/>
+            <span class="hidden sm:block">{mail}</span>
+
         </SocialPill>
 
         <SocialPill href="/portfolio/pdf/CV_en.pdf" target="_blank">
-            <CV class="size-5"/>
+            <CV class="size-6 sm:size-5"/>
+            <span class="hidden sm:block">CV</span>
         </SocialPill>
     </nav>
     </nav>
