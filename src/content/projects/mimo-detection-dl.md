@@ -7,6 +7,7 @@ image: {
  src: "/portfolio/images/portada_tfg.jpg",
  alt: "tfg photo"
 }
+github: ""
 draft: false
 featured: true
 ---
