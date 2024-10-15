@@ -15,7 +15,7 @@ const tocLinkClass = "text-gray-400 hover:text-gray-800"
             </a>
         </li>
         {headings.map((heading) => (
-            <li>
+            <li style={{ marginLeft: heading.depth === 3 ? '20px' : '0px' }}>
                 <a
                     href={`#${heading.slug}`}
                     class={tocLinkClass}
