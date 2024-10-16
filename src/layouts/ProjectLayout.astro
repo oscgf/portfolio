@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import TOC from '../components/TOC.astro';
 import TOCresponsive from '../components/TOCresponsive.astro';
 import '@fontsource-variable/onest'; 
+import ProjectRepository from '../components/ProjectRepository.astro';
 
 const { title, description, src, alt, github, headings } = Astro.props;
 ---
@@ -30,7 +31,11 @@ const { title, description, src, alt, github, headings } = Astro.props;
 				<h1>{title}</h1>
 				<span class="italic text-gray-800">{description}</span>
 				<br>
-				{github != "" && <a href={github} target="_blank" rel="noopener noreferrer">Project Repository</a>}
+				{github != "" &&
+					<ProjectRepository href={github}>
+					</ProjectRepository>
+			
+				}
 				<img src={src} alt={alt} class="w-full rounded-lg">
 				<div id="post">
 					<TOCresponsive {headings} />
