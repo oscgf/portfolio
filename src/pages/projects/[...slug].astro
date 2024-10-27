@@ -8,6 +8,7 @@ export async function getStaticPaths() {
     return projectEntries.map(entry => ({
         params: { slug: entry.slug }, props: { entry },
     }));
+    
 }
 
 // 2. For your template, you can get the entry directly from the prop
@@ -21,7 +22,9 @@ const { Content, headings } = await entry.render();
     src={entry.data.image.src}
     alt={entry.data.image.alt}
     github={entry.data.github}
+    report={entry.data.report}
     headings={headings}
+    tags={entry.data.tags}
 >
     <Content />
 </ProjectLayout>

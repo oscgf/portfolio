@@ -1,13 +1,20 @@
 ---
-title: "UC3M Job Offers Scraper"
+title: UC3M Job Offers Scraper
+author: Óscar González Fresno
+date: 07 Oct 2024
+summary: Web scraper that notifies the user when a new offer appers at UC3M website.
 description: "This project is a web scraper that fetches the latest job offers from the UC3M (Universidad Carlos III de Madrid) website. It checks for new job offers and sends an email notification when new offers appear or existing offers are updated."
 image: {
  src: "/portfolio/images/scraper.jpg",
  alt: "mail and github workflow examplo"
 }
 github: "https://github.com/oscgf/atenea-scraper"
+report: ""
 draft: false
 featured: true
+tags: 
+  - python
+  - automation
 ---
 
 ## Features

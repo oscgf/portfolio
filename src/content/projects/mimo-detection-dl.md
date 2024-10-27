@@ -2,6 +2,7 @@
 title: MIMO Detection with Deep Learning
 author: "Óscar González Fresno"
 date: "07 Oct 2024"
+summary: A python project that aplies DL techniques in MIMO communication systems
 description: This project applies Deep Learning to improve detection in MIMO communication systems, focusing on beating traditional detection methods.
 image: {
  src: "/portfolio/images/portada_tfg.jpg",
@@ -10,6 +11,9 @@ image: {
 github: ""
 draft: false
 featured: true
+tags: 
+  - python
+  - communications
 ---
 
 ## Summary

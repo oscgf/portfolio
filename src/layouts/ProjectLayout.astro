@@ -5,8 +5,9 @@ import TOC from '../components/TOC.astro';
 import TOCresponsive from '../components/TOCresponsive.astro';
 import '@fontsource-variable/onest'; 
 import ProjectRepository from '../components/ProjectRepository.astro';
+import ProjectReport from '../components/ProjectReport.astro';
 
-const { title, description, src, alt, github, headings } = Astro.props;
+const { title, description, src, alt, github, report, headings, tags } = Astro.props;
 ---
 
 <!doctype html>
@@ -34,6 +35,11 @@ const { title, description, src, alt, github, headings } = Astro.props;
 				{github != "" &&
 					<ProjectRepository href={github}>
 					</ProjectRepository>
+			
+				}
+				{report != "" &&
+					<ProjectReport href={report}>
+					</ProjectReport>
 			
 				}
 				<img src={src} alt={alt} class="w-full rounded-lg">
