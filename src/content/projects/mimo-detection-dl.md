@@ -8,7 +8,8 @@ image: {
  src: "/portfolio/images/portada_tfg.jpg",
  alt: "tfg photo"
 }
-github: ""
+github: "https://github.com/oscgf/mimo-detection-dl"
+report: "https://biblus.us.es/bibing/proyectos/abreproy/93911/descargar_fichero/TFG-3911+GONZ%C3%81LEZ+FRESNO%2C+%C3%93SCAR.pdf"
 draft: false
 featured: true
 tags: 
