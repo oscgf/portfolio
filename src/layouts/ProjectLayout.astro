@@ -42,7 +42,9 @@ const { title, description, src, alt, github, report, headings, tags } = Astro.p
 					</ProjectReport>
 			
 				}
-				<img src={src} alt={alt} class="w-full rounded-lg">
+				<div id="cover" class="flex justify-center">
+					<img src={src} alt={alt} class="w-auto h-80 rounded-lg">
+				</div>
 				<div id="post">
 					<TOCresponsive {headings} />
 					<slot />

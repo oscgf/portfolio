@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import remarkToc from 'remark-toc';
+import remarkExternalLinks from 'remark-external-links';
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,6 +8,8 @@ export default defineConfig({
   base: '/portfolio',
   integrations: [tailwind()],
   markdown: {
-    remarkPlugins: [ [remarkToc, { heading: 'toc', maxDepth: 3 } ] ],
+    remarkPlugins: [ 
+      [remarkExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }],
+    ],
   },
 });

@@ -28,4 +28,4 @@ This project presents the initial design of a K-band radar hardware operating in
 This project was carried out in collaboration with:
 
 - [Eduardo Gómez González](https://edgomezg.github.io/)
-- Oier Huici Itarte.
+- [Oier Huici Itarte](https://oierhuici.github.io/)
