@@ -1,7 +1,7 @@
 ---
 title: Design of a K-Band Antenna Array
 author: "Óscar González Fresno"
-date: "05 Dec 2023"
+date: "Dec 2023"
 summary: Initial design of a K-band radar hardware operating in the 18–27 GHz range
 description: Initial design of a K-band radar hardware operating in the 18–27 GHz range
 image: {

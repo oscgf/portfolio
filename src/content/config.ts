@@ -4,6 +4,7 @@ const projectCollection = defineCollection({
     type: 'content', // v2.5.0 and later
     schema: z.object({
         title: z.string(),
+        summary: z.string(),
         description: z.string(),
         date: z.string().optional(),  // If your projects have a completion or creation date
         tags: z.array(z.string()),  // Tags like 'React', 'UI/UX', 'Backend'

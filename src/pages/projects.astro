@@ -4,9 +4,14 @@ import Card from '../components/Card.astro';
 import SectionContainer from '../components/SectionContainer.astro';
 
 import { getCollection } from 'astro:content';
-const allProjects = await getCollection('projects', ({ data }) => {
-    return !data.draft;
+const allProjects = await getCollection('projects', ({ id }) => {
+    return !id.includes('drafts/');
 });
+
+allProjects.sort((a, b) => {
+    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+});
+
 ---
 
 
