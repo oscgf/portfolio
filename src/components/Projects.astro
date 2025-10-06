@@ -1,9 +1,10 @@
 ---
 import ProjectItem from './ProjectItem.astro'
 import { getCollection } from 'astro:content';
-const allProjects = await getCollection('projects', ({ data }) => {
-    return data.featured;
-});
+const allProjects = (await getCollection('projects'))
+    .filter(({ data }) => data.featured)
+    .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
 ---
 
 <ol class="grid grid-cols-1 gap-2 mx-5 my-5">
