@@ -1,19 +1,15 @@
 ---
 const skills = {
   technical: [
-    { level: "Advanced", names: ["Scala", "Spark", "Python", "Power BI", "JavaScript", "Matlab", "Office"]},
-    { level: "Intermediate", names: ["AWS", "Git", "SQL", "Java", "C++", "Pytorch", "ML", "Linux"]},
-    { level: "Basic", names: ["Astro", "React", "Node", "MongoDB"]},
-  ],
-  personal: [
-    "Organization and planning",
-    "Critical analysis",
-    "Ability to learn and adapt",
-    "Teamwork",
+    { category: "Languages", names: ["Scala", "Python", "SQL", "Java", "C++"] },
+    { category: "Frameworks", names: ["Spark", "Airflow", "Kafka", "Flink", "dbt", "PyTorch"] },
+    { category: "Databases", names: ["Redshift", "PostgreSQL", "MongoDB"] },
+    { category: "Technologies / Tools", names: ["AWS (S3, EMR, Glue, Athena)", "Docker", "Linux", "Git"] },
+    { category: "Practices", names: ["Agile", "Scrum", "Kanban"] },
   ],
   languages: [
-    { name: "ESP", level: "Native" , certificate: "-"},
-    { name: "ENG", level: "Profesional", certificate: "C1 (CAE)" },
+    { name: "ESP", level: "Native", certificate: "-" },
+    { name: "ENG", level: "Professional", certificate: "C1 (CAE)" },
     { name: "ITA", level: "Intermediate", certificate: "B2 (PLIDA)" },
   ],
 };
@@ -30,7 +26,7 @@ const className = "bg-white p-6 mb-8 rounded-lg shadow-lg transition-transform t
             <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg">
                 <thead>
                     <tr class="bg-gray-100 text-gray-900">
-                        <th class="py-2 px-4 border-b text-left">Level</th>
+                        <th class="py-2 px-4 border-b text-left">Category</th>
                         <th class="py-2 px-4 border-b text-left">Skill</th>
                     </tr>
                 </thead>
@@ -38,7 +34,7 @@ const className = "bg-white p-6 mb-8 rounded-lg shadow-lg transition-transform t
                     {skills.technical.map(skill => (
                         <tr class="hover:bg-gray-50 transition duration-200">
                             <td class="py-2 px-4 border-b text-gray-700">
-                                <span class="font-medium">{skill.level}</span>
+                                <span class="font-medium">{skill.category}</span>
                             </td>
                             <td class="py-2 px-4 border-b text-gray-500">
                                 {skill.names.join(', ')}
@@ -50,20 +46,6 @@ const className = "bg-white p-6 mb-8 rounded-lg shadow-lg transition-transform t
         </div>
     </div>
     
-    <!-- Personal Skills -->
-    <!--
-    <div class={className}>
-      <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">Personal</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-        {skills.personal.map(skill => (
-          <div class="flex justify-center items-center text-lg text-gray-700 hover:text-blue-600 transition-transform transform hover:scale-105 duration-300 p-4 border rounded-md shadow-sm">
-            {skill}
-          </div>
-        ))}
-      </div>
-    </div> 
-    -->
-
     <!-- Language Skills -->
     <div class={className}>
         <h3 class="text-xl md:text-2xl font-semibold text-gray-900">Languages</h3>

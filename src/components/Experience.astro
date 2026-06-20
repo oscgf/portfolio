@@ -1,39 +1,25 @@
 ---
 import ExperienceItem from './ExperienceItem.astro'
+import { EXPERIENCE } from '../data/experience'
 
-const EXPERIENCE = [
-    {
-        date: 'December 2024 - Present',
-        title: 'Data Engineer - Kairós DS and UC3M (Madrid)',
-        description: [
-            "Collaborated with Fundación Universia on data engineering projects.",
-            "Designed and executed ETL processes using Scala, Spark, and Python within an AWS cloud environment.",
-            "Developed interactive data visualizations and dashboards with Power BI to support business insights."
-        ],
-    },
-    {
-        date: 'April 2022 - July 2023',
-        title: 'Martech Engineering - Merkle (Gijón)',
-        description: [
-            "Data collection from multiple client assets to perform detailed analyses that enhance strategic decision-making and personalize customer experiences",
-            "Implementation of mechanisms to manage user privacy and consent on web pages, ensuring compliance with data protection regulations"
-            ],
-    },
-    {
-        date: 'March 2021 - June 2021',
-        title: 'Internship - University of Oviedo (Gijón)',
-        description:     [
-            "Participation in internships within the Signal Theory and Communications Group and the Thin5G Chair, collaborating on research and development projects in the telecommunications field.",
-            "Application of Machine Learning techniques on a digital communications simulation for MIMO channels, creating a neural network for signal detection and recovery."
-            ],
-    },
-]
+const maxItems = 2
+const showAll = EXPERIENCE.length > maxItems
+const items = EXPERIENCE.slice(0, maxItems)
 ---
 <ol class="relative border-s border-blue-300 mx-5 my-5">
-    {EXPERIENCE.map((item) => (
+    {items.map((item) => (
         <li class="mb-10 ms-4">
             <ExperienceItem {...item} />
         </li>
-    ))}    
+    ))}
 </ol>
+
+{showAll && (
+    <a href="/portfolio/experience" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mx-5">
+    More experience
+        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+        </svg>
+    </a>
+)}
 

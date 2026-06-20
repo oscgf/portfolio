@@ -4,20 +4,11 @@ import LinkedIn from './icons/LinkedIn.astro'
 import SocialPill from './SocialPill.astro'
 import GitHub from './icons/GitHub.astro'
 import Mail from './icons/Mail.astro'
-import CV from './icons/CV.astro'
-
 const is_available = false;
 const mail = "oscargonzalezfresno@gmail.com";
 ---
 
 <section id="Hero" class="w-full mx-auto lg:w-[740px] py-32 sm:py-44 pb-30 px-4">
-    <!-- Image -->
-    <img
-        src="/portfolio/images/avatar.jpg"
-        alt="oscar gonalez fresno"
-        class="rounded-full size-12 my-4"
-    />
-
     <!-- Title -->
     <h1 class="text-black text-4xl sm:text-5xl font-bold flex flex-col md:flex-row gap-2 md:gap-4 pb-4 items-start">
         Hey, I'm
@@ -40,7 +31,7 @@ const mail = "oscargonzalezfresno@gmail.com";
 
     <!-- Text -->
     <h2 class="text-black sm:text-xl opacity-75 text-wrap">
-        Telecommunications Engineer passionate about tackling complex challenges and driving innovation.
+        Data Engineer passionate about tackling complex challenges and driving innovation.
         <span class="italic">Let's create the future together.</span>
     </h2>
 
@@ -60,11 +51,6 @@ const mail = "oscargonzalezfresno@gmail.com";
             <Mail class="size-5 sm:size-4"/>
             <span class="hidden sm:block">{mail}</span>
 
-        </SocialPill>
-
-        <SocialPill href="/portfolio/pdf/CV.pdf" target="_blank">
-            <CV class="size-6 sm:size-5"/>
-            <span class="hidden sm:block">CV</span>
         </SocialPill>
     </nav>
 </section>

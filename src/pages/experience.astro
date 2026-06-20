@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import { EXPERIENCE } from '../data/experience';
+---
+
+<Layout title="Óscar González Fresno - Experience">
+  <main class="w-full p-4 md:p-6 lg:p-8">
+    <SectionContainer id="experience" title="Experience">
+      <ol class="relative border-s border-blue-300 mx-5 my-5">
+        {EXPERIENCE.map((item) => (
+          <li class="mb-10 ms-4">
+            <ExperienceItem {...item} />
+          </li>
+        ))}
+      </ol>
+    </SectionContainer>
+  </main>
+</Layout>
