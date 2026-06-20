@@ -62,6 +62,9 @@ export const dict = {
     'lang.es': 'Spanish',
 
     // Experience entries
+    'exp.date.0': 'December 2024 – Present',
+    'exp.date.1': 'April 2022 – July 2023',
+    'exp.date.2': 'March 2021 – June 2021',
     'exp.title.0': 'Data Engineer — UC3M & Kairós DS (Madrid, Spain)',
     'exp.title.1': 'Martech Engineer — Merkle (Gijón, Spain)',
     'exp.title.2': 'Internship — University of Oviedo (Gijón, Spain)',
@@ -71,6 +74,11 @@ export const dict = {
     'exp.0.desc.3': 'Developed interactive Power BI dashboards connected to Athena and Redshift using dbt, reducing query cost and time by 40%.',
 
     // Education entries
+    'edu.date.0': 'September 2023 - September 2025',
+    'edu.date.1': 'September 2017 - March 2022',
+    'edu.date.2': 'September 2021 - March 2022',
+    'edu.date.3': 'September 2019 - July 2020',
+    'edu.date.4': 'September 2018 - June 2023',
     'edu.title.0': 'Universidad Carlos III de Madrid',
     'edu.title.1': 'Universidad de Oviedo',
     'edu.title.2': 'Universidad de Sevilla',
@@ -146,8 +154,11 @@ export const dict = {
     'lang.es': 'Español',
 
     // Experience entries
+    'exp.date.0': 'Diciembre 2024 – Presente',
+    'exp.date.1': 'Abril 2022 – Julio 2023',
+    'exp.date.2': 'Marzo 2021 – Junio 2021',
     'exp.title.0': 'Data Engineer — UC3M & Kairós DS (Madrid, España)',
-    'exp.title.1': 'Ingeniero Martech — Merkle (Gijón, España)',
+    'exp.title.1': 'Martech Engineer — Merkle (Gijón, España)',
     'exp.title.2': 'Becario — Universidad de Oviedo (Gijón, España)',
     'exp.0.desc.0': 'Diseñé e implementé pipelines ETL de datos en AWS usando Scala, Spark y Python, procesando conjuntos de datos de escala de gigabytes y reduciendo los tiempos de ejecución de pipelines en un 30%.',
     'exp.0.desc.1': 'Orquesté flujos de trabajo complejos usando Apache Airflow, reduciendo los fallos de ingesta de datos en un 20% mediante mecanismos de reintento automatizado y alertas en tiempo real.',
@@ -155,6 +166,11 @@ export const dict = {
     'exp.0.desc.3': 'Desarrollé dashboards interactivos de Power BI conectados a Athena y Redshift usando dbt, reduciendo el coste y tiempo de consulta en un 40%.',
 
     // Education entries
+    'edu.date.0': 'Septiembre 2023 - Septiembre 2025',
+    'edu.date.1': 'Septiembre 2017 - Marzo 2022',
+    'edu.date.2': 'Septiembre 2021 - Marzo 2022',
+    'edu.date.3': 'Septiembre 2019 - Julio 2020',
+    'edu.date.4': 'Septiembre 2018 - Junio 2023',
     'edu.title.0': 'Universidad Carlos III de Madrid',
     'edu.title.1': 'Universidad de Oviedo',
     'edu.title.2': 'Universidad de Sevilla',

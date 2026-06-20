@@ -1,5 +1,6 @@
 export interface ExperienceEntry {
     date: string;
+    dateI18n: string;
     title: string;
     titleI18n: string;
     description: string[];
@@ -9,6 +10,7 @@ export interface ExperienceEntry {
 export const EXPERIENCE: ExperienceEntry[] = [
     {
         date: 'December 2024 – Present',
+        dateI18n: 'exp.date.0',
         title: 'Data Engineer — UC3M & Kairós DS (Madrid, Spain)',
         titleI18n: 'exp.title.0',
         description: [
@@ -21,6 +23,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     },
     {
         date: 'April 2022 – July 2023',
+        dateI18n: 'exp.date.1',
         title: 'Martech Engineer — Merkle (Gijón, Spain)',
         titleI18n: 'exp.title.1',
         description: [
@@ -31,6 +34,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     },
     {
         date: 'March 2021 – June 2021',
+        dateI18n: 'exp.date.2',
         title: 'Internship — University of Oviedo (Gijón, Spain)',
         titleI18n: 'exp.title.2',
         description: [
