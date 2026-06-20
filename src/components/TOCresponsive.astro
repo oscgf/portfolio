@@ -4,12 +4,13 @@ const tocLinkClass = "text-gray-400 hover:text-gray-800"
 ---
 
 <div id="toc" class="block md:hidden not-prose w-full p-4 bg-white/90 shadow-md rounded-lg">
-    <h2 class="text-lg text-blue-500 font-semibold pb-2">On this page</h2>
+    <h2 class="text-lg text-blue-500 font-semibold pb-2" data-i18n="toc.title">On this page</h2>
     <ul class="space-y-1">
         <li>
             <a
                 href={`#top`}
                 class={tocLinkClass}
+                data-i18n="toc.overview"
             >
                 Overview
             </a>

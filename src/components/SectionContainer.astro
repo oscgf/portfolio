@@ -12,6 +12,15 @@ interface Props {
 
 const { title, id } = Astro.props;
 const iconClass = "size-5 sm:size-6 stroke-[#2c3e50]";
+
+const i18nMap: Record<string, string> = {
+  'Experience': 'section.experience',
+  'Projects': 'section.projects',
+  'About me': 'section.about',
+  'Education': 'section.education',
+  'Skills': 'section.skills',
+};
+const i18nKey = i18nMap[title] || '';
 ---
 
 <section id={id} class="w-full mx-auto px-4 lg:w-[1024px]">
@@ -23,7 +32,7 @@ const iconClass = "size-5 sm:size-6 stroke-[#2c3e50]";
         {title === 'About me' && <User class={iconClass} />}
         {title === 'Education' && <Books class={iconClass} />}
         {title === 'Skills' && <User class={iconClass} />}
-        {title}
+        <span data-i18n={i18nKey}>{title}</span>
     </h2>
     <slot />
 </section>

@@ -4,12 +4,13 @@ const tocLinkClass = "text-gray-400 hover:text-gray-800"
 ---
 
 <aside id="toc" class="hidden rounded-bl-md md:block w-full md:w-1/4 p-4 bg-white/90 shadow-md md:sticky top-[60px] md:h-screen">
-    <h2 class="text-lg text-blue-500 font-semibold mb-2">On this page</h2>
+    <h2 class="text-lg text-blue-500 font-semibold mb-2" data-i18n="toc.title">On this page</h2>
     <ul class="space-y-1">
         <li>
             <a
                 href={`#top`}
                 class={tocLinkClass}
+                data-i18n="toc.overview"
             >
                 Overview
             </a>
