@@ -21,15 +21,9 @@ jobs:
           token: ${{ secrets.CV_REPO_TOKEN }}
           submodules: recursive
 
-      - name: Update cv submodule
+      - name: Update cv submodule to latest
         if: github.event.action == 'cv-updated'
-        run: |
-          git submodule update --remote cv
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add cv
-          git commit -m "chore: update cv submodule" || echo "No changes"
-          git push
+        run: git submodule update --remote cv
 
       - uses: actions/setup-node@v4
         with:
