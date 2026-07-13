@@ -1,27 +1,8 @@
 ---
 import EducationItem from './EducationItem.astro'
+import { CV_EDUCATION } from '../data/education';
 
-const EDUCATION = [
-    {
-        date: 'September 2023 - September 2025',
-        dateI18n: 'edu.date.0',
-        title: 'Universidad Carlos III de Madrid',
-        titleI18n: 'edu.title.0',
-        description: [
-            "Double Master Degree in Telecommunications Engineering and Advanced Communications Technologies"
-        ],
-        descriptionI18n: ['edu.0.desc.0'],
-    },
-    {
-        date: 'September 2017 - March 2022',
-        dateI18n: 'edu.date.1',
-        title: 'Universidad de Oviedo',
-        titleI18n: 'edu.title.1',
-        description: [
-            "Bachelor's Degree in Telecommunication Technologies and Services Engineering"
-        ],
-        descriptionI18n: ['edu.1.desc.0'],
-    },
+const EXTRA_EDUCATION = [
     {
         date: 'September 2021 - March 2022',
         dateI18n: 'edu.date.2',
@@ -53,6 +34,8 @@ const EDUCATION = [
         descriptionI18n: ['edu.4.desc.0'],
     },
 ]
+
+const EDUCATION = [...CV_EDUCATION, ...EXTRA_EDUCATION];
 
 ---
 <ol class="relative border-s border-blue-300 mx-5 my-5">
