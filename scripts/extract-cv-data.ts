@@ -68,14 +68,27 @@ function formatExperience(exp: CvEntry, i: number): string {
   }`;
 }
 
+function splitEducationTitle(edu: CvEntry): { title: string; description: string[] } {
+  const separator = ' — ';
+  const idx = edu.title.indexOf(separator);
+  if (idx > 0 && edu.description.length === 0) {
+    return {
+      title: edu.title.substring(idx + separator.length),
+      description: [edu.title.substring(0, idx)],
+    };
+  }
+  return { title: edu.title, description: edu.description };
+}
+
 function formatEducation(edu: CvEntry, i: number): string {
-  const descKeys = edu.description.map((_, j) => `edu.${i}.desc.${j}`);
+  const { title, description } = splitEducationTitle(edu);
+  const descKeys = description.map((_, j) => `edu.${i}.desc.${j}`);
   const descArr = '[' + descKeys.map((k) => `'${k}'`).join(', ') + ']';
-  const descVals = '[' + edu.description.map((d) => JSON.stringify(d)).join(', ') + ']';
+  const descVals = '[' + description.map((d) => JSON.stringify(d)).join(', ') + ']';
   return `  {
     date: ${JSON.stringify(edu.date)},
     dateI18n: 'edu.date.${i}',
-    title: ${JSON.stringify(edu.title)},
+    title: ${JSON.stringify(title)},
     titleI18n: 'edu.title.${i}',
     description: ${descVals},
     descriptionI18n: ${descArr},
@@ -177,8 +190,9 @@ function buildI18nEntries(lang: 'en' | 'es'): Record<string, string> {
 
   data.education.forEach((edu, i) => {
     entries[`edu.date.${i}`] = edu.date;
-    entries[`edu.title.${i}`] = edu.title;
-    edu.description.forEach((desc, j) => {
+    const { title, description } = splitEducationTitle(edu);
+    entries[`edu.title.${i}`] = title;
+    description.forEach((desc, j) => {
       entries[`edu.${i}.desc.${j}`] = desc;
     });
   });
