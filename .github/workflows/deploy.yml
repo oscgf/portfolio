@@ -17,9 +17,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.CV_REPO_TOKEN }}
-          submodules: recursive
+
+      - name: Init cv submodule
+        run: |
+          if [ -n "$TOKEN" ]; then
+            git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "https://github.com/"
+          fi
+          git submodule update --init --recursive
+        env:
+          TOKEN: ${{ secrets.CV_REPO_TOKEN }}
 
       - name: Update cv submodule to latest
         if: github.event.action == 'cv-updated'
@@ -30,7 +36,7 @@ jobs:
           node-version: 22
 
       - run: npm ci
-      - run: npm run extract-cv-data
+      - run: npm run extract-cv-data || true
       - run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
