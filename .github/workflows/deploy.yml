@@ -17,19 +17,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Init cv submodule
-        run: |
-          if [ -n "$TOKEN" ]; then
-            git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "https://github.com/"
-          fi
-          git submodule update --init --recursive
-        env:
-          TOKEN: ${{ secrets.CV_REPO_TOKEN }}
+        with:
+          token: ${{ secrets.CV_PORTFOLIO_TOKEN }}
+          submodules: recursive
 
       - name: Update cv submodule to latest
         if: github.event.action == 'cv-updated'
-        run: git submodule update --remote cv
+        run: |
+          git submodule update --remote cv
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add cv
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update cv submodule [skip ci]"
+            git push
+          fi
 
       - uses: actions/setup-node@v4
         with:
