@@ -1,8 +1,10 @@
-import { loadCv, type CvEntry, type SkillCategory, type LanguageSkill } from '../src/data/cv-parser';
+import { loadCv, type CvEntry, type CertificationEntry, type SkillCategory, type LanguageSkill } from '../src/data/cv-parser';
+import { dict } from '../src/i18n/dict';
 import fs from 'node:fs';
 import path from 'node:path';
 
 const DATA_DIR = path.resolve(import.meta.dirname, '../src/data');
+const I18N_JS_PATH = path.resolve(import.meta.dirname, '../src/utils/js/i18n.js');
 
 const en = loadCv('en');
 const es = loadCv('es');
@@ -95,6 +97,26 @@ function formatEducation(edu: CvEntry, i: number): string {
   }`;
 }
 
+function formatCertification(cert: CertificationEntry, i: number): string {
+  const descKeys = cert.description.map((_, j) => `cert.${i}.desc.${j}`);
+  const descArr = '[' + descKeys.map((k) => `'${k}'`).join(', ') + ']';
+  const descVals = '[' + cert.description.map((d) => JSON.stringify(d)).join(', ') + ']';
+  const lines = [
+    `    date: ${JSON.stringify(cert.date)},`,
+    `    dateI18n: 'cert.date.${i}',`,
+    `    title: ${JSON.stringify(cert.title)},`,
+    `    titleI18n: 'cert.title.${i}',`,
+    `    description: ${descVals},`,
+    `    descriptionI18n: ${descArr},`,
+  ];
+  if (cert.url) lines.push(`    url: ${JSON.stringify(cert.url)},`);
+  if (cert.linkLabel) {
+    lines.push(`    linkLabel: ${JSON.stringify(cert.linkLabel)},`);
+    lines.push(`    linkLabelI18n: 'cert.${i}.link',`);
+  }
+  return `  {\n${lines.join('\n')}\n  }`;
+}
+
 function formatSkillCategory(cat: SkillCategory): string {
   const key = `skills.cat.${slugifyCategory(cat.category)}`;
   return `  {
@@ -145,6 +167,26 @@ function generateEducation(): string {
 }
 
 export const CV_EDUCATION: EducationEntry[] = [
+${entries}
+];
+`;
+}
+
+function generateCertifications(): string {
+  const entries = en.certifications.map((cert, i) => formatCertification(cert, i)).join(',\n');
+  return `export interface CertificationEntry {
+  date: string;
+  dateI18n: string;
+  title: string;
+  titleI18n: string;
+  description: string[];
+  descriptionI18n: string[];
+  linkLabel?: string;
+  linkLabelI18n?: string;
+  url?: string;
+}
+
+export const CERTIFICATIONS: CertificationEntry[] = [
 ${entries}
 ];
 `;
@@ -203,6 +245,17 @@ function buildI18nEntries(lang: 'en' | 'es'): Record<string, string> {
     entries[key] = cat.category;
   });
 
+  data.certifications.forEach((cert, i) => {
+    entries[`cert.date.${i}`] = cert.date;
+    entries[`cert.title.${i}`] = cert.title;
+    cert.description.forEach((desc, j) => {
+      entries[`cert.${i}.desc.${j}`] = desc;
+    });
+    if (cert.linkLabel) {
+      entries[`cert.${i}.link`] = cert.linkLabel;
+    }
+  });
+
   const levelMap = getLocaleLevelMap(lang);
   const levelEntries: Record<string, string> = {};
   data.languages.forEach((l) => {
@@ -240,6 +293,57 @@ ${esLines}
 `;
 }
 
+function generateI18nJs(): string {
+  const enMerged: Record<string, string> = {
+    ...(dict.en as Record<string, string>),
+    ...buildI18nEntries('en'),
+  };
+  const esMerged: Record<string, string> = {
+    ...(dict.es as Record<string, string>),
+    ...buildI18nEntries('es'),
+  };
+  const dictJson = JSON.stringify({ en: enMerged, es: esMerged }, null, 2);
+
+  return `(function () {
+  const DICT = ${dictJson};
+
+  function getLang() {
+    try {
+      return localStorage.getItem('lang') || 'en';
+    } catch {
+      return 'en';
+    }
+  }
+
+  function setLang(lang) {
+    try {
+      localStorage.setItem('lang', lang);
+    } catch {}
+  }
+
+  function applyLanguage(lang) {
+    document.documentElement.lang = lang;
+    const dict = DICT[lang] || DICT['en'];
+
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key]) {
+        el.textContent = dict[key];
+      }
+    });
+  }
+
+  const currentLang = getLang();
+  applyLanguage(currentLang);
+
+  document.addEventListener('langchange', function (e) {
+    setLang(e.detail.lang);
+    applyLanguage(e.detail.lang);
+  });
+})();
+`;
+}
+
 function writeIfChanged(filePath: string, content: string) {
   if (fs.existsSync(filePath) && fs.readFileSync(filePath, 'utf-8') === content) {
     return;
@@ -250,6 +354,8 @@ function writeIfChanged(filePath: string, content: string) {
 writeIfChanged(path.join(DATA_DIR, 'experience.ts'), generateExperience());
 writeIfChanged(path.join(DATA_DIR, 'skills.ts'), generateSkills());
 writeIfChanged(path.join(DATA_DIR, 'education.ts'), generateEducation());
+writeIfChanged(path.join(DATA_DIR, 'certifications.ts'), generateCertifications());
 writeIfChanged(path.join(DATA_DIR, 'cv-i18n.ts'), generateI18n());
+writeIfChanged(I18N_JS_PATH, generateI18nJs());
 
 console.log('CV data extracted successfully.');

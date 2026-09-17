@@ -4,6 +4,7 @@ import Terminal from './icons/Terminal.astro';
 import Language from './icons/Language.astro';
 import User from './icons/User.astro';
 import Books from './icons/Books.astro';
+import Award from './icons/Award.astro';
 
 interface Props {
 	title: string;
@@ -19,6 +20,7 @@ const i18nMap: Record<string, string> = {
   'About me': 'section.about',
   'Education': 'section.education',
   'Skills': 'section.skills',
+  'Certifications': 'section.certifications',
 };
 const i18nKey = i18nMap[title] || '';
 ---
@@ -32,6 +34,7 @@ const i18nKey = i18nMap[title] || '';
         {title === 'About me' && <User class={iconClass} />}
         {title === 'Education' && <Books class={iconClass} />}
         {title === 'Skills' && <User class={iconClass} />}
+        {title === 'Certifications' && <Award class={iconClass} />}
         <span data-i18n={i18nKey}>{title}</span>
     </h2>
     <slot />

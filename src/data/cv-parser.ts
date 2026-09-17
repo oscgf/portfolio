@@ -18,6 +18,14 @@ export interface CvEntry {
   description: string[];
 }
 
+export interface CertificationEntry {
+  title: string;
+  date: string;
+  description: string[];
+  linkLabel?: string;
+  url?: string;
+}
+
 export interface Contact {
   mail: string;
   phone: string;
@@ -33,7 +41,7 @@ export interface CvData {
   skills: SkillCategory[];
   experience: CvEntry[];
   education: CvEntry[];
-  certifications: CvEntry[];
+  certifications: CertificationEntry[];
   languages: LanguageSkill[];
 }
 
@@ -145,9 +153,22 @@ function parseEntries(lines: string[]): CvEntry[] {
   return entries;
 }
 
-function parseCertifications(lines: string[]): CvEntry[] {
-  const entries: CvEntry[] = [];
-  let current: CvEntry | null = null;
+function extractMarkdownLink(text: string): { text: string; label?: string; url?: string } {
+  const match = text.match(/\[([^\]]+)\]\(([^)]+)\)/);
+  if (!match) return { text };
+  const label = match[1];
+  const url = match[2];
+  const rest = text
+    .replace(match[0], '')
+    .replace(/\s*·\s*$/, '')
+    .replace(/^\s*·\s*/, '')
+    .trim();
+  return { text: rest, label, url };
+}
+
+function parseCertifications(lines: string[]): CertificationEntry[] {
+  const entries: CertificationEntry[] = [];
+  let current: CertificationEntry | null = null;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
@@ -162,7 +183,13 @@ function parseCertifications(lines: string[]): CvEntry[] {
     } else if (line.startsWith('*') && line.endsWith('*') && current) {
       current.date = stripInlineFormatting(line.slice(1, -1));
     } else if (line && current && current.date) {
-      current.description.push(stripInlineFormatting(line));
+      const { text, label, url } = extractMarkdownLink(line);
+      if (url && !current.url) {
+        current.url = url;
+        current.linkLabel = label;
+      }
+      const clean = stripInlineFormatting(text);
+      if (clean) current.description.push(clean);
     }
   }
 

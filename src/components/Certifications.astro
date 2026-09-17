@@ -1,0 +1,18 @@
+---
+import CertificationItem from './CertificationItem.astro'
+import { CERTIFICATIONS } from '../data/certifications';
+
+interface Props {
+    limit?: number;
+}
+
+const { limit } = Astro.props;
+const items = limit ? CERTIFICATIONS.slice(0, limit) : CERTIFICATIONS;
+---
+<ol class="relative border-s border-blue-300 mx-5 my-5">
+    {items.map((item) => (
+        <li class="mb-10 ms-4">
+            <CertificationItem {...item} />
+        </li>
+    ))}
+</ol>

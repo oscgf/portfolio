@@ -20,6 +20,7 @@ export const dict = {
     'section.about': 'About me',
     'section.education': 'Education',
     'section.skills': 'Skills',
+    'section.certifications': 'Certifications',
 
     // About
     'about.p1': 'I am a Data Engineer with a passion for technology, problem-solving, and transforming data into value for business. My career spans data engineering and data analysis, machine learning, and telecommunications, providing a diverse set of skills to tackle complex analytical challenges.',
@@ -89,6 +90,7 @@ export const dict = {
     'section.about': 'Sobre mí',
     'section.education': 'Formación',
     'section.skills': 'Habilidades',
+    'section.certifications': 'Certificaciones',
 
     // About
     'about.p1': 'Soy Data Engineer con pasión por la tecnología, la resolución de problemas y la transformación de datos en valor para el negocio. Mi trayectoria abarca la ingeniería y el análisis de datos, el machine learning y las telecomunicaciones, lo que me proporciona un conjunto diverso de habilidades para afrontar desafíos analíticos complejos.',
